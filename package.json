@@ -1,0 +1,20 @@
+{
+  "name": "ellen",
+  "version": "0.0.1",
+  "author": "Yassine AZZOUT <yassine.azzout@gmail.com>",
+  "license": "Uncopyrighted",
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "mongodb": "^3.1.10",
+    "node-fetch": "^2.3.0",
+    "p-limit": "^2.0.0",
+    "p-settle": "^2.1.0"
+  }
+}
