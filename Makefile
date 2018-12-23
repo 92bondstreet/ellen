@@ -1,7 +1,13 @@
 SHELL := /bin/bash
 
+parse: ## parse and save all issues in db
+	node bin/index.js
+
 sandbox: ## sandbox for dev purpose
-	$(filter-out $@,$(MAKECMDGOALS)) ./node_modules/.bin/nodemon api/index.js
+	./node_modules/.bin/nodemon api/index.js
+
+start: ## start the graphql server
+	node api/index.js
 
 help: ## This help dialog.
 	@IFS=$$'\n' ; \
