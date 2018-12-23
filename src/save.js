@@ -1,10 +1,8 @@
-const {MongoClient} = require('mongodb');
-const {MONGODB_URI} = require('./constants');
+const getDb = require('./get-db');
 
 module.exports = async issues => {
   try {
-    const client = await MongoClient.connect(MONGODB_URI, {'useNewUrlParser': true});
-    const db = await client.db('swlw');
+    const db = await getDb();
     const collection = await db.collection('issues');
 
     return await collection.insertMany(issues);
