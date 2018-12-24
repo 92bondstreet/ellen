@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "alias": "ellen",
+  "builds": [
+    {"src": "dist/index.js", "use": "@now/node-server"}
+  ],
+  "routes": [
+    { "src": "/graphql", "dest": "dist/index.js" }
+  ],
+  "env": {
+    "MONGODB_HOST": "@ellen-mongodb-host"
+  }
+}

@@ -35,3 +35,9 @@
 ```
 
 ## 🚀 Deploy
+
+```sh
+# define the mongodb host
+❯ now secret add ellen-mongodb-host ip:port 
+❯ make deploy
+```

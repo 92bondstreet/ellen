@@ -1,5 +1,16 @@
 SHELL := /bin/bash
 
+.PHONY: dist
+
+dist: ## build api
+	ncc build api/index.js -o dist
+
+deploy: ## deploy
+	now --public -n ellen
+
+login: ## login with now
+	now login
+
 parse: ## parse and save all issues in db
 	node bin/index.js
 

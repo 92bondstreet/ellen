@@ -187,9 +187,5 @@ coverage
 *.html
 *.cookies
 
-### AUTOBOTS ###
-ecosystem
-profiles.json
-accounts.json
-*.yml
-*.cli
+### zeit ###
+dist
