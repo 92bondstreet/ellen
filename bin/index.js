@@ -1,4 +1,4 @@
-const {browse, save} = require('../src/index');
+const {browse, save} = require('../core/index');
 
 async function bin () {
   try {

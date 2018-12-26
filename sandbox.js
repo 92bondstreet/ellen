@@ -1,5 +1,5 @@
 /* eslint-disable no-console, no-process-exit */
-const {browse, getLatestIssue, parse} = require('./src/index');
+const {browse, getLatestIssue, parse} = require('./core/index');
 
 async function sandbox (issue) {
   try {

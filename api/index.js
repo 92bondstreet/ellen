@@ -1,5 +1,5 @@
 const cors = require('cors');
-const getDb = require('../src/get-db');
+const getDb = require('../core/get-db');
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const {ELLEN_PORT} = require('./constants');
