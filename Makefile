@@ -6,6 +6,7 @@ dist: ## build api
 	ncc build api/index.js -o dist
 
 deploy: ## deploy
+	make dist
 	now --public -n ellen
 
 login: ## login with now
@@ -14,7 +15,10 @@ login: ## login with now
 parse: ## parse and save all issues in db
 	node bin/index.js
 
-sandbox: ## sandbox for dev purpose
+sandbox: ## sandbox for client-side dev purpose
+	yarn start
+
+sandbox-api: ## sandbox for api dev purpose
 	./node_modules/.bin/nodemon api/index.js
 
 start: ## start the graphql server
