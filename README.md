@@ -4,6 +4,8 @@
 
 ![Photo by @markusspiske](https://source.unsplash.com/sFydXGrt5OA/800x600)
 
+## 🖥️ [Live demo](https://ellen.now.sh)
+
 ## 🏗️ Installation
 
 ```sh

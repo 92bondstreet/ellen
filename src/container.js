@@ -14,6 +14,10 @@ const RANDOM = gql`
   }
 `;
 
+const COUNT = gql`
+  { count }
+`;
+
 const Post = () => {
   return (
     <Query query={RANDOM}>
@@ -28,6 +32,24 @@ const Post = () => {
   );
 };
 
+const Timeline = () => {
+  return (
+    <Query query={COUNT}>
+      {({data, loading}) => {
+        if (loading) {
+          return null;
+        }
+
+        return (
+          <div className="timeline">
+            <a href="http://softwareleadweekly.com" target="_blank" rel="noopener noreferrer">{data.count} issues</a>
+          </div>
+        );
+      }}
+    </Query>
+  );
+};
+
 export default () => {
   return (
     <div className="container">
@@ -37,9 +59,7 @@ export default () => {
       <div className="post">
         <Post />
       </div>
-      <div className="timeline">
-        <a href="http://softwareleadweekly.com" target="_blank" rel="noopener noreferrer">2567 issues</a>
-      </div>
+      <Timeline />
     </div>
   );
 };

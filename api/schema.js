@@ -4,6 +4,7 @@ const typeDefs = [`
   type Query {
     issues: [Issue]
     random: Issue
+    count: Int
   }
   type Issue {
     title: String
@@ -17,6 +18,11 @@ const typeDefs = [`
 
 const resolvers = {
   'Query': {
+    'count': async (obj, args, context) => {
+      const {db} = context;
+
+      return await db.collection('issues').countDocuments();
+    },
     'issues': async (obj, args, context) => {
       const {db} = context;
 

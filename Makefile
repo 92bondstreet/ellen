@@ -2,6 +2,9 @@ SHELL := /bin/bash
 
 .PHONY: dist
 
+alias: ## alias to ellen.now.sh
+	now alias $(filter-out $@,$(MAKECMDGOALS)) ellen
+
 dist: ## build api
 	ncc build api/index.js -o dist-api
 
