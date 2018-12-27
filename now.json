@@ -2,10 +2,18 @@
   "version": 2,
   "alias": "ellen",
   "builds": [
-    {"src": "dist/index.js", "use": "@now/node-server"}
+    {"src": "dist-api/index.js", "use": "@now/node-server"},
+    {"src": "package.json", "use": "@now/static-build"}
   ],
   "routes": [
-    { "src": "/graphql", "dest": "dist/index.js" }
+    { "src": "/graphql", "dest": "dist-api/index.js" },
+    {"src": "^/static/(.*)", "dest": "/static/$1"},
+    {"src": "^/favicon.ico", "dest": "/favicon.ico"},
+    {"src": "^/asset-manifest.json", "dest": "/asset-manifest.json"},
+    {"src": "^/manifest.json", "dest": "/manifest.json"},
+    {"src": "^/service-worker.js", "headers": {"cache-control": "s-maxage=0"}, "dest": "/service-worker.js"},
+    {"src": "^/precache-manifest.(.*)", "dest": "/precache-manifest.$1"},
+    {"src": "^/(.*)", "dest": "/index.html"}
   ],
   "env": {
     "MONGODB_HOST": "@ellen-mongodb-host"

@@ -3,7 +3,7 @@ SHELL := /bin/bash
 .PHONY: dist
 
 dist: ## build api
-	ncc build api/index.js -o dist
+	ncc build api/index.js -o dist-api
 
 deploy: ## deploy
 	make dist

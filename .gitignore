@@ -189,3 +189,4 @@ coverage
 
 ### zeit ###
 dist
+dist-*
