@@ -3,6 +3,10 @@
  * Copyright 2015 Daniel Cardoso <@DanielCardoso>
  * Licensed under MIT
  */
+.la {
+  margin:0 auto;
+}
+
 .la-line-scale-pulse-out-rapid,
 .la-line-scale-pulse-out-rapid > div {
     position: relative;

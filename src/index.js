@@ -2,8 +2,8 @@ import ApolloClient from 'apollo-boost';
 import {ApolloProvider} from 'react-apollo';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.scss';
+import App from './container';
 import * as serviceWorker from './serviceWorker';
 
 const client = new ApolloClient({

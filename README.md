@@ -23,7 +23,7 @@
 ### Start graphql sandbox
 
 ```sh
-❯ make sandbox
+❯ make sandbox-api
 ❯ MONGODB_HOST=ip:port make sandbox
 ```
 
@@ -34,10 +34,17 @@
 ❯ MONGODB_HOST=ip:port make start
 ```
 
+### Start react app (with apollo) sandbox
+
+```sh
+❯ make sandbox
+```
+
+
 ## 🚀 Deploy
 
 ```sh
 # define the mongodb host
-❯ now secret add ellen-mongodb-host ip:port 
+❯ now secret add ellen-mongodb-host ip:port
 ❯ make deploy
 ```

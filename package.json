@@ -32,6 +32,7 @@
     "graphql-tools": "^4.0.3",
     "mongodb": "^3.1.10",
     "node-fetch": "^2.3.0",
+    "node-sass": "^4.11.0",
     "p-limit": "^2.0.0",
     "p-settle": "^2.1.0",
     "react": "^16.7.0",
