@@ -10,10 +10,11 @@ const app = express();
 async function start () {
   try {
     const db = await getDb();
+    const collection = await db.collection('issues');
 
     app.use('/graphql', graphqlHTTP({
       schema,
-      'context': {db},
+      'context': {collection},
       'graphiql': true
     }));
 

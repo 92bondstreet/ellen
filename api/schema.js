@@ -19,18 +19,18 @@ const typeDefs = [`
 const resolvers = {
   'Query': {
     'count': async (obj, args, context) => {
-      const {db} = context;
+      const {collection} = context;
 
-      return await db.collection('issues').countDocuments();
+      return collection.countDocuments();
     },
     'issues': async (obj, args, context) => {
-      const {db} = context;
+      const {collection} = context;
 
-      return await db.collection('issues').find().toArray();
+      return collection.find().toArray();
     },
     'random': async (obj, args, context) => {
-      const {db} = context;
-      const cursor = await db.collection('issues').aggregate([{'$sample': {'size': 1}}]);
+      const {collection} = context;
+      const cursor = await collection.aggregate([{'$sample': {'size': 1}}]);
       const docs = await cursor.toArray();
 
       return docs[0];
