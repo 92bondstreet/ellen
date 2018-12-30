@@ -1,6 +1,6 @@
 const {ASYNC_MAX_RETRY} = require('./constants');
 const {makeExecutableSchema} = require('graphql-tools');
-const retry = require('async-retry')
+const retry = require('async-retry');
 
 const typeDefs = [`
   type Query {

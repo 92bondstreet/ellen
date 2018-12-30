@@ -21,8 +21,8 @@ const COUNT = gql`
 const Post = () => {
   return (
     <Query query={RANDOM}>
-      {({loading, data}) => {
-        if (loading) {
+      {({data, error, loading}) => {
+        if (loading || error) {
           return <Loader />;
         }
 
@@ -35,8 +35,8 @@ const Post = () => {
 const Timeline = () => {
   return (
     <Query query={COUNT}>
-      {({data, loading}) => {
-        if (loading) {
+      {({data, error, loading}) => {
+        if (loading || error) {
           return null;
         }
 
