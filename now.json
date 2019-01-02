@@ -17,5 +17,10 @@
   ],
   "env": {
     "MONGODB_HOST": "@ellen-mongodb-host"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_GRAPHQL_URI": "https://ellen.now.sh/graphql"
+    }
   }
 }
