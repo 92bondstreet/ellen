@@ -17,7 +17,10 @@ module.exports = async () => {
 
   const promises = Array.from(new Array(latest), (val, index) => index + 1)
     .map(issue => {
-      return limit(async () => await parse(issue));
+      return limit(async () => {
+        console.log(`parsing issue ${issue}/${latest}`);
+        return await parse(issue);
+      });
     });
 
   const results = await pSettle(promises);
