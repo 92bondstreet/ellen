@@ -18,6 +18,10 @@ const COUNT = gql`
   { count }
 `;
 
+const YEARS = gql`
+  { years }
+`;
+
 const Post = () => {
   return (
     <Query query={RANDOM}>
@@ -50,6 +54,31 @@ const Timeline = () => {
   );
 };
 
+const Footer = () => {
+  return (
+    <Query query={YEARS}>
+      {({data, error, loading}) => {
+        if (loading || error) {
+          return null;
+        }
+
+        return (
+          <div className="footer">
+            <p>
+              {data.years.reverse().map(year =>
+                // Without the `key`, React will fire a key warning
+                <React.Fragment key={year}>
+                  <a href="/">{year}</a>
+                </React.Fragment>
+              )}
+            </p>
+          </div>
+        );
+      }}
+    </Query>
+  );
+};
+
 export default () => {
   return (
     <div className="container">
@@ -60,6 +89,7 @@ export default () => {
         <Post />
       </div>
       <Timeline />
+      <Footer />
     </div>
   );
 };

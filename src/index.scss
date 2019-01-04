@@ -317,16 +317,31 @@ table {
 	}
 	/* "timeline" at bottom of home page */
 	.timeline {
-      bottom: 0;
 	    font-family: "inconsolata", Helvetica, sans-serif;
 	    font-size: 2em;
 	    font-weight: bold;
 	    line-height: 1.25em;
 	    margin-bottom: 0.5em;
       margin-top: 1em;
-      position: absolute;
-      padding: 0.5em;
 	}
 	.timeline a { color: #d3d3d3 }
 	.timeline a:visited { color: #d3d3d3 }
 	.timeline a:hover { color: #666 }
+  .footer {
+      margin-top: 2em;
+  }
+  .footer p {
+	    font-size: .9em;
+	    letter-spacing: .15em;
+	    text-transform: lowercase;
+	    color: #333;
+	    padding: 0;
+	    margin: 0;
+	    margin-left: 0;
+	    padding-left: 0;
+	    font-family: "inconsolata", Helvetica, sans-serif;
+	}
+	.footer a {
+      color: #666;
+      margin-right: 1em;
+  }

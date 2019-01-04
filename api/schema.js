@@ -7,6 +7,7 @@ const typeDefs = [`
     issues: [Issue]
     random: Issue
     count: Int
+    years: [Int]
   }
   type Issue {
     title: String
@@ -42,6 +43,13 @@ const resolvers = {
         const docs = await cursor.toArray();
 
         return docs[0];
+      }, {'retries': ASYNC_MAX_RETRY});
+    },
+    'years': async (obj, args, context) => {
+      const {collection} = context;
+
+      return await retry(async () => {
+        return await collection.distinct('year');
       }, {'retries': ASYNC_MAX_RETRY});
     }
   }
