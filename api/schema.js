@@ -5,7 +5,7 @@ const retry = require('async-retry');
 const typeDefs = [`
   type Query {
     issues: [Issue]
-    random: Issue
+    random(year: Int): Issue
     count: Int
     years: [Int]
   }
@@ -37,9 +37,10 @@ const resolvers = {
     },
     'random': async (obj, args, context) => {
       const {collection} = context;
+      const {year = '*'} = args;
 
       return await retry(async () => {
-        const cursor = await collection.aggregate([{'$sample': {'size': 1}}]);
+        const cursor = await collection.aggregate([{'$match': {year}}, {'$sample': {'size': 1}}]);
         const docs = await cursor.toArray();
 
         return docs[0];

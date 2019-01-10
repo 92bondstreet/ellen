@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import Issue from './components/Issue';
+import {Link} from 'react-router-dom';
 import Loader from './components/Loader';
 import React from 'react';
 import {Query} from 'react-apollo';
@@ -65,10 +66,10 @@ const Footer = () => {
         return (
           <div className="footer">
             <p>
-              {data.years.reverse().map(year =>
+              {data.years.sort().map(year =>
                 // Without the `key`, React will fire a key warning
                 <React.Fragment key={year}>
-                  <a href="/">{year}</a>
+                  <Link to={`/${year}`}>{year}</Link>
                 </React.Fragment>
               )}
             </p>
