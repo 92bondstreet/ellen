@@ -37,7 +37,7 @@ const resolvers = {
     },
     'random': async (obj, args, context) => {
       const {collection} = context;
-      const {year = '*'} = args;
+      const {year = (new Date()).getFullYear()} = args;
 
       return await retry(async () => {
         const cursor = await collection.aggregate([{'$match': {year}}, {'$sample': {'size': 1}}]);
