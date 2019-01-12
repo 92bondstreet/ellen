@@ -6,8 +6,9 @@ import React from 'react';
 import {Query} from 'react-apollo';
 
 const RANDOM = gql`
+ query Random($year: Int)
   {
-    random {
+    random(year: $year) {
       title
       tldr
       url
@@ -23,9 +24,9 @@ const YEARS = gql`
   { years }
 `;
 
-const Post = () => {
+const Post = props => {
   return (
-    <Query query={RANDOM}>
+    <Query query={RANDOM}  variables={props}>
       {({data, error, loading}) => {
         if (loading || error) {
           return <Loader />;
@@ -80,14 +81,16 @@ const Footer = () => {
   );
 };
 
-export default () => {
+export default ({match}) => {
+  const {id = (new Date()).getFullYear()} = match.params;
+
   return (
     <div className="container">
       <div className="top">
         <h1 className="emoji"><span role="img" aria-labelledby="Woman Astronaut">👩‍🚀</span></h1>
       </div>
       <div className="post">
-        <Post />
+        <Post year={+id}/>
       </div>
       <Timeline />
       <Footer />
